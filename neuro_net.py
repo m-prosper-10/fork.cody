@@ -43,9 +43,9 @@ class NeuralNetwork:
         d_w1 = np.outer(x, d_hidden)
         d_b1 = d_hidden
 
-        self.w1 -= learning_rate * d_W1
+        self.w1 -= learning_rate * d_w1
         self.b1 -= learning_rate * d_b1
-        self.w2 -= learning_rate * d_W2
+        self.w2 -= learning_rate * d_w2
         self.b2 -= learning_rate * d_b2
 
         return loss
