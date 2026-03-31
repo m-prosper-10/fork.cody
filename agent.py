@@ -11,3 +11,11 @@ def __init__ (self):
     self.network = NeuralNetwork(self.input_size,self.hidden_size,self.output_size)
 
     self.memory = deque (maxlen=100_000) #Deque will delete the memory when full
+
+    self.gamma = 0.9 #Discount (Model focuses on future rewards)
+    self.epsilon = 1.0 # Exploration rate (from 1.0 to 100% each try)
+    self.epsilon_min = 0.01 # The agent must at least explore 1% for each try
+    self.epsilon_decay = 0.995 #Ensures Exploration and Exploitation
+    self.learning_rate = 0.001 # How the NN updates its bias and Weight
+    self.batch_size = 64 #Learn from 64 past experiences at once
+    
