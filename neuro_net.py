@@ -33,7 +33,8 @@ class NeuroNetwork:
 
         d_w2 = np.outer(self.a1,d_output) #The outer product
         d_b2 = d_output
-        
+
+        d_hidden  = np.dot(d_output, self.w2.T) #Move output error back into the hidden layer (Transposing the matrix)
     def predict(self, state):
         scores = self.forward(state)
         return np.argmax(scores)
