@@ -1,6 +1,6 @@
 import numpy as np 
 
-class NeuroNetwork:
+class NeuralNetwork:
     def __init__(self,input_size, hidden_size, output_size):
 
         #Layer 1: Connects input to hidden neurons
