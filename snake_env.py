@@ -120,10 +120,11 @@ class SnakeEnv:
         self.steps += 1
 
         # Handle pygame quit even in training mode
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                sys.exit()
+        if self.render_mode:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    sys.exit()
 
         # Convert relative action to absolute direction
         if action == 0:    self.direction = self._turn_left(self.direction)
