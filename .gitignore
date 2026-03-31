@@ -1,1 +1,4 @@
+*.npz
+*.npy
+venv
 __pycache__
