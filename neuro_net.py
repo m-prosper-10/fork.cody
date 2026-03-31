@@ -30,6 +30,10 @@ class NeuroNetwork:
         loss = np.mean((output - target) **2)
 
         d_output = 2 * (output- target)/ len(target) #This calculates how each neuron contributed to the loss ( Gradient)
+
+        d_w2 = np.outer(self.a1,d_output) #The outer product
+        d_b2 = d_output
+        
     def predict(self, state):
         scores = self.forward(state)
         return np.argmax(scores)
