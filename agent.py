@@ -41,4 +41,5 @@ def learn(self):
         else:
             future_q = np.max(self.network.forward(next_state))
             q_target = reward + self.gamma * future_q
-            
+
+        q_values = self.network.forward(state) #Get all the Q Values for each action (Right, Straight, Left)
