@@ -43,3 +43,12 @@ def learn(self):
             q_target = reward + self.gamma * future_q
 
         q_values = self.network.forward(state) #Get all the Q Values for each action (Right, Straight, Left)
+
+        target = q_values.copy()
+        target[action] = q_target
+
+        self.network.backward(state, target, self.learning_rate)
+
+        # Decay epsilon — become less random over time
+        if self.epsilon > self.epsilon_min:
+            self.epsilon *= self.epsilon_decay
