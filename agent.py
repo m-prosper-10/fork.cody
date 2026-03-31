@@ -34,25 +34,25 @@ class DQNAgent:
         if len(self.memory) < self.batch_size:
             return
     
-    batch = random.sample(self.memory,self.batch_size)
+        batch = random.sample(self.memory,self.batch_size)
 
-    for state, action, reward, next_state, done in batch:
-        if done:
-            q_target = reward
-        else:
-            future_q = np.max(self.network.forward(next_state))
-            q_target = reward + self.gamma * future_q
+        for state, action, reward, next_state, done in batch:
+            if done:
+                q_target = reward
+            else:
+                future_q = np.max(self.network.forward(next_state))
+                q_target = reward + self.gamma * future_q
 
-        q_values = self.network.forward(state) #Get all the Q Values for each action (Right, Straight, Left)
+            q_values = self.network.forward(state) #Get all the Q Values for each action (Right, Straight, Left)
 
-        target = q_values.copy()
-        target[action] = q_target
+            target = q_values.copy()
+            target[action] = q_target
 
-        self.network.backward(state, target, self.learning_rate)
+            self.network.backward(state, target, self.learning_rate)
 
-        # Decay epsilon — become less random over time
-        if self.epsilon > self.epsilon_min:
-            self.epsilon *= self.epsilon_decay
+            # Decay epsilon — become less random over time
+            if self.epsilon > self.epsilon_min:
+                self.epsilon *= self.epsilon_decay
 
     def save(self, filepath="snake_brain.npz"):
         np.savez(filepath,
