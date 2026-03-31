@@ -18,4 +18,7 @@ def __init__ (self):
     self.epsilon_decay = 0.995 #Ensures Exploration and Exploitation
     self.learning_rate = 0.001 # How the NN updates its bias and Weight
     self.batch_size = 64 #Learn from 64 past experiences at once
-    
+
+
+def remember (self, state, action, reward, next_state, done):
+    self.memory.append((state,actio,reward,next_state,done))
