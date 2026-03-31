@@ -47,7 +47,8 @@ class NeuroNetwork:
         self.b1 -= learning_rate * d_b1
         self.W2 -= learning_rate * d_W2
         self.b2 -= learning_rate * d_b2
-        
+
+        return loss
     def predict(self, state):
         scores = self.forward(state)
         return np.argmax(scores)
