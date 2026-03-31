@@ -14,6 +14,9 @@ class NeuroNetwork:
     def relu(self,x):
         return np.maximum(0,x)
 
+    def relu_derivative(self,x):
+        return (x > 0).astype(float)
+        
     def forward(self, x):
         self.z1 = np.dot(x, self.w1) + self.b1
         self.a1 = self.relu(self.z1)
@@ -21,6 +24,10 @@ class NeuroNetwork:
         self.z2 = np.dot(self.a1, self.w2) + self.b2
 
         return self.z2
+
+
+    def backward(self, x, target , learning_rate =0.001):
+
     
     def predict(self, state):
         scores = self.forward(state)
