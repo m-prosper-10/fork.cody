@@ -68,7 +68,7 @@ def train():
 
         if env.score > best_score:
             best_score = env.score
-            agent.save("snake_brain.npz")
+            agent.save("Cod_brain.npz")
 
         best_scores.append(best_score)
         avg = float(np.mean(all_scores[-50:]))
