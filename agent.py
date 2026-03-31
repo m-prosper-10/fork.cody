@@ -52,3 +52,17 @@ def learn(self):
         # Decay epsilon — become less random over time
         if self.epsilon > self.epsilon_min:
             self.epsilon *= self.epsilon_decay
+
+    def save(self, filepath="snake_brain.npz"):
+        np.savez(filepath,
+                 W1=self.network.W1, b1=self.network.b1,
+                 W2=self.network.W2, b2=self.network.b2)
+        print(f"Model saved to {filepath}")
+
+    def load(self, filepath="snake_brain.npz"):
+        data = np.load(filepath)
+        self.network.W1 = data["W1"]
+        self.network.b1 = data["b1"]
+        self.network.W2 = data["W2"]
+        self.network.b2 = data["b2"]
+        print(f"Model loaded from {filepath}")
