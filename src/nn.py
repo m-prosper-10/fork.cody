@@ -12,10 +12,10 @@ class NeuralNetwork:
         self.w2 = np.random.randn(hidden_size, output_size) * np.sqrt(2.0 / hidden_size)
         self.b2  = np.zeros(output_size)
 
-        self.z1 = []
-        self.a1 = []
-        self.z2 = []
-        self.output = []
+        self.z1 = np.array([])
+        self.a1 = np.array([])
+        self.z2 = np.array([])
+        self.output = np.array([])
 
     def relu(self,x):
         return np.maximum(0,x)
