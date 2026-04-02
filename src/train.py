@@ -1,11 +1,11 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from snake_env import SnakeEnv
-from Cod_agent import DQNAgent
+from src.snake_env import SnakeEnv
+from src.dqn_agent import DQNAgent
 
 def plot_results(scores, best_scores, avg_scores, epsilons):
     fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 7))
-    fig.suptitle("CodyAI — Training Results", fontsize=14, fontweight="bold")
+    fig.suptitle("Cody AI — Training Results", fontsize=14, fontweight="bold")
 
     games = list(range(1, len(scores) + 1))
 
@@ -36,7 +36,7 @@ def plot_results(scores, best_scores, avg_scores, epsilons):
 
 
 def train():
-    env   = SnakeEnv(render=True)   # no window during training
+    env   = SnakeEnv(render=True)   # set render=False for faster training (no window)
     agent = DQNAgent()
 
     num_games  = 1000
@@ -84,7 +84,6 @@ def train():
 
 
 def watch():
-    """Load trained model and watch it play."""
     env   = SnakeEnv(render=True)
     agent = DQNAgent()
     agent.epsilon = 0.0
