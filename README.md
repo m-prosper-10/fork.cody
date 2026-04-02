@@ -130,6 +130,14 @@ agent.load("main_model.npz")
 **Model won't load**
 > Ensure `main_model.npz` exists. Keys must match: `w1, b1, w2, b2` (lowercase)
 
+## 👥 Contributors
+
+| Contributor | Improvement |
+|---|---|
+| [@m-prosper-10](https://github.com/m-prosper-10) | Vectorized Bellman equation, He initialization, src/ restructure |
+
+Want to contribute to CodyAI? Fork the repo and open a PR! 
+
 ## License
 
 Personal project for learning reinforcement learning.
