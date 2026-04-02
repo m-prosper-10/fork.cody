@@ -36,7 +36,7 @@ def plot_results(scores, best_scores, avg_scores, epsilons):
 
 
 def train():
-    env   = SnakeEnv(render=True)   # set render=False for faster training (no window)
+    env   = SnakeEnv(render=False)   # set render=False for faster training (no window)
     agent = DQNAgent()
 
     num_games  = 1000
