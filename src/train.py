@@ -68,7 +68,7 @@ def train():
 
         if env.score > best_score:
             best_score = env.score
-            agent.save("Cod_brain.npz")
+            agent.save("main_model.npz")
 
         best_scores.append(best_score)
         avg = float(np.mean(all_scores[-50:]))
@@ -89,7 +89,7 @@ def watch():
     agent.epsilon = 0.0
 
     try:
-        agent.load("Cod_brain.npz")
+        agent.load("main_model.npz")
     except FileNotFoundError:
         print("No saved model found! Train first: python train.py")
         return
